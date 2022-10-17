@@ -12,6 +12,9 @@ class Component{
         this.speedY = 0;
         this.gravity = 0.05;
         this.gravitySpeed = 0;
+        this.img = new Image();
+
+        
         //GRAVITY
         this.update = function() {
             ctx = myGameArea.context;
@@ -43,35 +46,36 @@ newPos() {
 
 }
 
-hitBottom() {
+
+
+drawPlayer() {
+    this.img.src = "/docs/assets/images/24752-5-spaceship.png";
+    this.ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
+
 
 }
 
-
-
-draw() {
-    this.ctx.fillStyle = this.color;
-    this.ctx.fillRect(this.x, this.y, this.w, this.h);
-
-
+drawEnemy(){
+    this.img.src = "/docs/assets/images/meteorite-ga02192b9e_1280.png";
+    this.ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
 }
 
 
 
 top(){
-    return this.y;
+    return this.y+10;
 }
 
 bottom() {
-    return this.y + this.h;
+    return (this.y - 12) + this.h;
 }
 
 left() {
-    return this.x;
+    return this.x + 5;
 }
 
 right() {
-    return this.x + this.w;
+    return (this.x -5) + this.w;
 }
 
 crashWith (obstacle) {

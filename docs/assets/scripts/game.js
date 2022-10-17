@@ -34,7 +34,7 @@ class Game{
         this.frames++;
         this.clear();
         this.player.newPos();
-        this.player.draw();
+        this.player.drawPlayer();
          this.updateObstacles(); 
          this.checkGameOver();
          this.score(); 
@@ -57,7 +57,7 @@ class Game{
     updateObstacles() {
         for (let i = 0; i < this.obstacles.length; i++) {
           this.obstacles[i].x -= 1;
-          this.obstacles[i].draw();
+          this.obstacles[i].drawEnemy();
         }
     
         if (this.frames % 250 === 0) {
@@ -81,15 +81,15 @@ class Game{
           let gap5 = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
     
           //OBSTACLES
-          this.obstacles.push(new Component(1480, Math.floor(Math.random() * (canvas.height - 50 + 50 + 1) + 30), 20, x - this.width - gap, 'blue', this.ctx));
+          this.obstacles.push(new Component(1480, Math.floor(Math.random() * (canvas.height - 50 + 50 + 1) + 30), 50, 45, 'blue', this.ctx));
 
-          this.obstacles.push(new Component(1650, Math.floor(Math.random() * (canvas.height - 50 + 50 + 1) + 90), 20, x - this.width - gap4, 'blue', this.ctx));
+          this.obstacles.push(new Component(1650, Math.floor(Math.random() * (canvas.height - 50 + 50 + 1) + 90), 50, 45, 'blue', this.ctx));
 
-          this.obstacles.push(new Component(1500, Math.floor(Math.random() * (canvas.height - 50 + 50 + 1) + 70), 20, x - this.width - gap2, 'blue', this.ctx));
+          /* this.obstacles.push(new Component(1500, Math.floor(Math.random() * (canvas.height - 50 + 50 + 1) + 70), 50, 45, 'blue', this.ctx)); */
 
-          this.obstacles.push(new Component(1250, Math.floor(Math.random() * (canvas.height - 50 + 50 + 1) + 40), 20, x - this.width - gap3, 'blue', this.ctx));
+          this.obstacles.push(new Component(1250, Math.floor(Math.random() * (canvas.height - 50 + 50 + 1) + 40), 50, 45, 'blue', this.ctx));
 
-          this.obstacles.push(new Component(1300, Math.floor(Math.random() * (canvas.height - 50 + 50 + 1) + 120), 20, x - this.width - gap5, 'blue', this.ctx));
+          this.obstacles.push(new Component(1300, Math.floor(Math.random() * (canvas.height - 50 + 50 + 1) + 120), 50, 45, 'blue', this.ctx));
         }
 
     }
