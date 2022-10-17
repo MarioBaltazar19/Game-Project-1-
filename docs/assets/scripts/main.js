@@ -1,11 +1,12 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-const player = new Component(630, 600, 50, 50, "red", ctx);
+const player = new Component(630, 360, 50, 50, "red", ctx);
 
 let game = new Game(ctx, 1280, 720, player);
 
 game.start();
+
 
 
 
@@ -20,10 +21,12 @@ document.addEventListener("keydown", (e) => {
     }
 });
 
-/* document.addEventListener("keyup", (e) => {
-    player.speedY = -5;
-}); */
 
+/* 
+ document.addEventListener("keyup", (e) => {
+    player.speedY = -5;
+}); 
+ */
 
 
 

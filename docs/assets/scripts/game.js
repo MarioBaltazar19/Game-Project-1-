@@ -7,9 +7,15 @@ class Game{
         this.intervalId = null;
         this.obstacles = [];
         this.frames = 0;
+        this.background = new Image();
     } 
 
-     start(){
+    drawBackground() {
+        this.background.src = '';
+        this.ctx.drawImage(this.background, 0, 0, this.width, this.height);
+      }
+
+    start(){
         this.intervalId = setInterval(this.update, 500 / 60);
     } 
 
@@ -19,9 +25,9 @@ class Game{
 
     score() {
         const points = Math.floor(this.frames / 15);
-        this.ctx.font = "22px monospace";
-        this.ctx.fillStyle = "black";
-        this.ctx.fillText (`Score: ${points}` , 320, 50);
+        this.ctx.font = "30px monospace";
+        this.ctx.fillStyle = "blue";
+        this.ctx.fillText (`Score: ${points}` , 1080, 60);
     }
 
     update = () => {
@@ -43,11 +49,9 @@ class Game{
             return this.player.crashWith(obstacle);
         });
 
-        if(crashed){
+        if(crashed || player.top() < 0 || player.bottom() > 720){
             this.stop();
-        }
-
-        
+        };
     }
 
     updateObstacles() {
@@ -69,18 +73,14 @@ class Game{
           let minGap = 190;
           let maxGap = 200;
     
-          //this creates the gap
+          //GAPS
           let gap = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
           let gap2 = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
           let gap3 = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
           let gap4 = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
           let gap5 = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
     
-          //add the obstacles to the array
-          //top obstacle
-          /* this.obstacles.push(new Component(0, 500, 10, width, 'green', this.ctx)); */
-    
-          //bottom obstacle
+          //OBSTACLES
           this.obstacles.push(new Component(1480, Math.floor(Math.random() * (canvas.height - 50 + 50 + 1) + 30), 20, x - this.width - gap, 'blue', this.ctx));
 
           this.obstacles.push(new Component(1650, Math.floor(Math.random() * (canvas.height - 50 + 50 + 1) + 90), 20, x - this.width - gap4, 'blue', this.ctx));
@@ -92,11 +92,8 @@ class Game{
           this.obstacles.push(new Component(1300, Math.floor(Math.random() * (canvas.height - 50 + 50 + 1) + 120), 20, x - this.width - gap5, 'blue', this.ctx));
         }
 
-      }
-
-      
-
-
     }
+
+}
 
 

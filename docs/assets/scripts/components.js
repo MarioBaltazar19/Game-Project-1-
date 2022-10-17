@@ -1,3 +1,5 @@
+
+
 class Component{
     constructor (x, y, w, h, color, ctx){
         this.x = x;
@@ -22,27 +24,27 @@ class Component{
             this.y += this.speedY + this.gravitySpeed;  
         }
 
-        
 
-       
+
+
 
 
         //BOTTOM
 
-        
-          
-        
-        
+
+
+
+
     }
 
 newPos() {
     this.x += this.speedX;
     this.y += this.speedY;
-    
+
 }
 
 hitBottom() {
-    
+
 }
 
 
@@ -50,8 +52,8 @@ hitBottom() {
 draw() {
     this.ctx.fillStyle = this.color;
     this.ctx.fillRect(this.x, this.y, this.w, this.h);
-    
-    
+
+
 }
 
 
