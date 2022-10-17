@@ -6,13 +6,14 @@ class Game{
         this.player = player;
         this.intervalId = null;
         this.obstacles = [];
+        this.bgHeight = 720;
         this.frames = 0;
         this.background = new Image();
     } 
 
     drawBackground() {
-        this.background.src = '';
-        this.ctx.drawImage(this.background, 0, 0, this.width, this.height);
+        this.background.src = '/docs/assets/images/backgroundGame.jpg';
+        this.ctx.drawImage(this.background, 0, this.bgHeight, this.width, -3600);
       }
 
     start(){
@@ -33,11 +34,15 @@ class Game{
     update = () => {
         this.frames++;
         this.clear();
+        if (this.bgHeight < 3600)
+        {this.bgHeight += 1;}
+        this.drawBackground();
         this.player.newPos();
         this.player.drawPlayer();
          this.updateObstacles(); 
          this.checkGameOver();
-         this.score(); 
+         this.score();
+
     };
 
     stop(){
@@ -81,19 +86,34 @@ class Game{
           let gap5 = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
     
           //OBSTACLES
-          this.obstacles.push(new Component(1480, Math.floor(Math.random() * (canvas.height - 50 + 50 + 1) + 30), 50, 45, 'blue', this.ctx));
+          /* this.obstacles.push(new Component(1480, Math.floor(Math.random() * (canvas.height - 50 + 50 + 1) + 30), 55, 55, 'blue', this.ctx)); */
 
-          this.obstacles.push(new Component(1650, Math.floor(Math.random() * (canvas.height - 50 + 50 + 1) + 90), 50, 45, 'blue', this.ctx));
+          this.obstacles.push(new Component(1650, Math.floor(Math.random() * (canvas.height - 50 + 50 + 1) + 90), 55, 55, 'blue', this.ctx));
 
-          /* this.obstacles.push(new Component(1500, Math.floor(Math.random() * (canvas.height - 50 + 50 + 1) + 70), 50, 45, 'blue', this.ctx)); */
+           this.obstacles.push(new Component(1500, Math.floor(Math.random() * (canvas.height - 50 + 50 + 1) + 70), 55, 55, 'blue', this.ctx)); 
 
-          this.obstacles.push(new Component(1250, Math.floor(Math.random() * (canvas.height - 50 + 50 + 1) + 40), 50, 45, 'blue', this.ctx));
+           this.obstacles.push(new Component(1250, Math.floor(Math.random() * (canvas.height - 50 + 50 + 1) + 40), 55, 55, 'blue', this.ctx)); 
 
-          this.obstacles.push(new Component(1300, Math.floor(Math.random() * (canvas.height - 50 + 50 + 1) + 120), 50, 45, 'blue', this.ctx));
+          this.obstacles.push(new Component(1300, Math.floor(Math.random() * (canvas.height - 50 + 50 + 1) + 120), 55, 55, 'blue', this.ctx));
         }
+
+     /*    
+        if (this.frames % 240===0) {
+            this.obstacles.push(new Enemys(this.ctx))
+        } */
 
     }
 
 }
 
 
+/* class Enemys extends Game{
+    constructor( ctx);{
+    super (ctx); 
+    this.ctx = ctx
+    this.img = new Image()
+    this.img.src = "/docs/assets/images/vermelha.png"
+
+
+
+} */

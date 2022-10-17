@@ -56,7 +56,7 @@ drawPlayer() {
 }
 
 drawEnemy(){
-    this.img.src = "/docs/assets/images/meteorite-ga02192b9e_1280.png";
+    this.img.src = "/docs/assets/images/dourada.png";
     this.ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
 }
 
@@ -87,3 +87,5 @@ crashWith (obstacle) {
     );
     }
 }
+
+
