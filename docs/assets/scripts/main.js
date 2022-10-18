@@ -5,7 +5,18 @@ const player = new Component(630, 360, 50, 75, "red", ctx);
 
 let game = new Game(ctx, 1280, 720, player);
 
-game.start();
+window.onload = () => {
+    document.getElementById("start-button").onclick = () => {
+        game.start();
+      document.getElementById("game-intro").style.display = "none";
+      document.getElementById("game-board").style.display = "block";
+    };
+
+};
+
+
+
+
 
 
 

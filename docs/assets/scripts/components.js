@@ -43,20 +43,17 @@ class Component{
 newPos() {
     this.x += this.speedX;
     this.y += this.speedY;
-
 }
 
 
 
 drawPlayer() {
-    this.img.src = "/docs/assets/images/24752-5-spaceship.png";
+    this.img.src = "/docs/assets/images/iconBomPequeno.png";
     this.ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
-
-
 }
 
 drawEnemy(){
-    this.img.src = "/docs/assets/images/dourada.png";
+    this.img.src = "/docs/assets/images/douradaBoa3.png";
     this.ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
 }
 
@@ -71,11 +68,11 @@ bottom() {
 }
 
 left() {
-    return this.x + 5;
+    return this.x + 8;
 }
 
 right() {
-    return (this.x -5) + this.w;
+    return (this.x -10) + this.w;
 }
 
 crashWith (obstacle) {

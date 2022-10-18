@@ -12,8 +12,8 @@ class Game{
     } 
 
     drawBackground() {
-        this.background.src = '/docs/assets/images/backgroundGame.jpg';
-        this.ctx.drawImage(this.background, 0, this.bgHeight, this.width, -3600);
+        this.background.src = '/docs/assets/images/backgroundBom.jpg';
+        this.ctx.drawImage(this.background, 0, this.bgHeight, this.width, -5800);
       }
 
     start(){
@@ -27,15 +27,15 @@ class Game{
     score() {
         const points = Math.floor(this.frames / 15);
         this.ctx.font = "30px monospace";
-        this.ctx.fillStyle = "blue";
+        this.ctx.fillStyle = "white";
         this.ctx.fillText (`Score: ${points}` , 1080, 60);
     }
 
     update = () => {
         this.frames++;
         this.clear();
-        if (this.bgHeight < 3600)
-        {this.bgHeight += 1;}
+        if (this.bgHeight < 5800)
+        {this.bgHeight += 0.5;}
         this.drawBackground();
         this.player.newPos();
         this.player.drawPlayer();
@@ -54,14 +54,14 @@ class Game{
             return this.player.crashWith(obstacle);
         });
 
-        if(crashed || player.top() < 0 || player.bottom() > 720){
+        if(crashed || player.top() < 10 || player.bottom() > 710){
             this.stop();
         };
     }
 
     updateObstacles() {
         for (let i = 0; i < this.obstacles.length; i++) {
-          this.obstacles[i].x -= 1;
+          this.obstacles[i].x -= 4;
           this.obstacles[i].drawEnemy();
         }
     

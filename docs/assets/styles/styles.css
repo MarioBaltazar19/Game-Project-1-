@@ -12,8 +12,61 @@ canvas{
     
 } */
 
+
 body{
     background-image: url(/docs/assets/images/2352.jpg) ;
     background-size: 250vh;
 }
 
+.button {
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    position: absolute;
+    left: 100vh;
+    top: 50vh;
+    color: #FFF;
+    text-decoration: none;
+    background: linear-gradient(#1879BD 50%, #084D79 50%);
+    text-align: center;
+    font-size: 35px;
+    font-family: sans-serif;
+    border-radius: 5vh;
+}
+.button:hover {                 
+    background: linear-gradient(#d16416 50%, #da1010 50%);
+}
+.button:active {
+    background: linear-gradient(#678834 50%, #093905 50%);
+}
+/* 
+#canvas{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+ */
+
+ /* .instructions {
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    position: absolute;
+    left: 100vh;
+    top: 100vh;
+    color: #FFF;
+    text-decoration: none;
+    background: linear-gradient(#1879BD 50%, #084D79 50%);
+    text-align: center;
+    font-size: 25px;
+    font-family: sans-serif;
+    border-radius: 5vh;
+}
+.instructions:hover {                 
+    background: linear-gradient(#d16416 50%, #da1010 50%);
+}
+.instructions:active {
+    background: linear-gradient(#678834 50%, #093905 50%);
+}
+
+ */
