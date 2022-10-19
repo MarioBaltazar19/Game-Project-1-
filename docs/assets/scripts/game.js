@@ -1,15 +1,17 @@
 class Game{
-    constructor(ctx, width, height, player, player2){
+    constructor(ctx, width, height, player, player2, player3){
         this.ctx = ctx;
         this.width = width;
         this.height = height;
         this.player = player;
-        this.player2 = player2
+        this.player2 = player2;
+        this.player3 = player3;
         this.intervalId = null;
         this.obstacles = [];
         this.bgHeight = 720;
         this.frames = 0;
         this.background = new Image();
+        this.points = 0;
     } 
 
     drawBackground() {
@@ -27,10 +29,10 @@ class Game{
     }
 
     score() {
-        const points = Math.floor(this.frames / 15);
+        this.points = Math.floor(this.frames / 15);
         this.ctx.font = "30px monospace";
         this.ctx.fillStyle = "white";
-        this.ctx.fillText (`Score: ${points}` , 1080, 60);
+        this.ctx.fillText (`Score: ${this.points}` , 1080, 60);
     }
 
     update = () => {
@@ -41,22 +43,27 @@ class Game{
         this.drawBackground();
         this.player.newPos();
         this.player.drawPlayer();
-        this.player2.newPos();
+        if (this.player2)
+        {this.player2.newPos();
         this.player2.drawPlayer();
-         this.updateObstacles(); 
-         this.checkGameOver();
-         this.checkGameOver2();
-         this.score();
+        this.checkGameOver2();}
+        if (this.player3)
+        {this.player3.newPos();
+        this.player3.drawPlayer();
+        this.checkGameOver3();}
+        this.updateObstacles(); 
+        this.checkGameOver();
+        this.score();
 
     };
 
     stop(){
         clearInterval(this.intervalId);
-        document.getElementById('retry-button').style.display = "block";
+       
     }
 
     explode(){
-        
+
     }
 
     checkGameOver() {
@@ -70,20 +77,52 @@ class Game{
     }
 
     checkGameOver2() {
-        const crashed = this.obstacles.some((obstacle) => {
+        if (this.player2)
+        {const crashed = this.obstacles.some((obstacle) => {
             return this.player2.crashWith(obstacle);
         });
 
-        if(crashed || player2.top() < 10 || player2.bottom() > 710){
+        if(crashed || this.player2.top() < 10 || this.player2.bottom() > 710){
             this.stop();
-        };
+        };}
     }
+
+    checkGameOver3() {
+        if (this.player3)
+        {const crashed = this.obstacles.some((obstacle) => {
+            return this.player3.crashWith(obstacle);
+        });
+
+        if(crashed || this.player3.top() < 10 || this.player3.bottom() > 710){
+            this.stop();
+        };}
+    }
+
 
     updateObstacles() {
         for (let i = 0; i < this.obstacles.length; i++) {
-          this.obstacles[i].x -= 4;
+            if(this.points >= 100 && this.points < 200){
+            this.obstacles[i].x -= 2;
           this.obstacles[i].drawEnemy();
         }
+        else if(this.points >= 200 && this.points < 300){
+          this.obstacles[i].x -= 3;
+          this.obstacles[i].drawEnemy();
+        }
+        else if(this.points >= 300 && this.points < 400){
+            this.obstacles[i].x -= 4;
+            this.obstacles[i].drawEnemy();
+          }
+          else if(this.points >= 400 ){
+            this.obstacles[i].x -= 5;
+            this.obstacles[i].drawEnemy();
+          }
+          else{
+                this.obstacles[i].x -= 1.5;
+                this.obstacles[i].drawEnemy();
+              }
+          }
+        
     
         if (this.frames % 250 === 0) {
           let x = 1500;
@@ -116,7 +155,7 @@ class Game{
 
           this.obstacles.push(new Component(1300, Math.floor(Math.random() * (canvas.height - 50 + 50 + 1) + 120), 55, 55, 'blue', this.ctx));
         }
-
+    
      /*    
         if (this.frames % 240===0) {
             this.obstacles.push(new Enemys(this.ctx))

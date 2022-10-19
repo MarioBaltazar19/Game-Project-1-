@@ -103,6 +103,15 @@ body{
 
 }
 
+#players{
+    width: 1280px;
+    height: 720px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
 
 
 button{
@@ -112,7 +121,25 @@ button{
 }
 
 
-
+.multiplayer {
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    
+    color: #FFF;
+    text-decoration: none;
+    background: linear-gradient(#1879BD 50%, #084D79 50%);
+    text-align: center;
+    font-size: 30px;
+    font-family: sans-serif;
+    border-radius: 5vh;
+}
+.multiplayer:hover {                 
+    background: linear-gradient(#d16416 50%, #da1010 50%);
+}
+.multiplayer:active {
+    background: linear-gradient(#678834 50%, #093905 50%);
+}
 
 
 

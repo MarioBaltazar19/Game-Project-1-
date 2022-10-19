@@ -1,10 +1,11 @@
 class GameExpert{
-    constructor(ctx, width, height, player){
+    constructor(ctx, width, height, player, player2, player3){
         this.ctx = ctx;
         this.width = width;
         this.height = height;
         this.player = player;
-        this.player2 = player2
+         this.player2 = player2;
+         this.player3 = player3;
         this.intervalId = null;
         this.obstacles = [];
         this.bgHeight = 720;
@@ -41,12 +42,17 @@ class GameExpert{
         this.drawBackground();
         this.player.newPos();
         this.player.drawPlayer();
-        this.player2.newPos();
+        if (this.player2)
+        {this.player2.newPos();
         this.player2.drawPlayer();
-         this.updateObstacles(); 
-         this.checkGameOver();
-         this.checkGameOver2();
-         this.score();
+        this.checkGameOver2();}
+        if (this.player3)
+        {this.player3.newPos();
+        this.player3.drawPlayer();
+        this.checkGameOver3();}
+        this.updateObstacles(); 
+        this.checkGameOver();
+        this.score();
 
     };
 
@@ -65,14 +71,27 @@ class GameExpert{
     }
 
     checkGameOver2() {
-        const crashed = this.obstacles.some((obstacle) => {
+        if (this.player2)
+        {const crashed = this.obstacles.some((obstacle) => {
             return this.player2.crashWith(obstacle);
         });
 
-        if(crashed || player2.top() < 10 || player2.bottom() > 710){
+        if(crashed || this.player2.top() < 10 || this.player2.bottom() > 710){
             this.stop();
-        };
+        };}
     }
+
+    checkGameOver3() {
+        if (this.player3)
+        {const crashed = this.obstacles.some((obstacle) => {
+            return this.player3.crashWith(obstacle);
+        });
+
+        if(crashed || this.player3.top() < 10 || this.player3.bottom() > 710){
+            this.stop();
+        };}
+    }
+
 
     updateObstacles() {
         for (let i = 0; i < this.obstacles.length; i++) {
