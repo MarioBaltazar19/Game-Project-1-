@@ -1,6 +1,4 @@
-
-
-class Component{
+class Component2{
     constructor (x, y, w, h, color, ctx){
         this.x = x;
         this.y = y;
@@ -51,8 +49,6 @@ drawPlayer() {
     this.img.src = "/docs/assets/images/iconBomPequeno.png";
     this.ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
 }
-
-
 
 drawEnemy(){
     this.img.src = "/docs/assets/images/douradaBoa3.png";

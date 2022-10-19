@@ -1,5 +1,5 @@
-class Game{
-    constructor(ctx, width, height, player, player2){
+class GameEasy{
+    constructor(ctx, width, height, player){
         this.ctx = ctx;
         this.width = width;
         this.height = height;
@@ -41,7 +41,7 @@ class Game{
         this.drawBackground();
         this.player.newPos();
         this.player.drawPlayer();
-        this.player2.newPos();
+         this.player2.newPos();
         this.player2.drawPlayer();
          this.updateObstacles(); 
          this.checkGameOver();
@@ -52,11 +52,6 @@ class Game{
 
     stop(){
         clearInterval(this.intervalId);
-        document.getElementById('retry-button').style.display = "block";
-    }
-
-    explode(){
-        
     }
 
     checkGameOver() {
@@ -81,7 +76,7 @@ class Game{
 
     updateObstacles() {
         for (let i = 0; i < this.obstacles.length; i++) {
-          this.obstacles[i].x -= 4;
+          this.obstacles[i].x -= 1;
           this.obstacles[i].drawEnemy();
         }
     
@@ -125,15 +120,3 @@ class Game{
     }
 
 }
-
-
-/* class Enemys extends Game{
-    constructor( ctx);{
-    super (ctx); 
-    this.ctx = ctx
-    this.img = new Image()
-    this.img.src = "/docs/assets/images/vermelha.png"
-
-
-
-} */

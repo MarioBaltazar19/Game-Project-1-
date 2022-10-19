@@ -1,8 +1,3 @@
-#game-board{
-    display: flex;
-    justify-content: center;
-    margin-top: 4%;
-}
 /* 
 canvas{
     background-image: url(/docs/assets/images/background\ Game.jpg);
@@ -16,15 +11,20 @@ canvas{
 body{
     background-image: url(/docs/assets/images/2352.jpg) ;
     background-size: 250vh;
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
+    height: 100vh;
+} 
 
 .button {
     width: 200px;
     height: 50px;
     line-height: 50px;
-    position: absolute;
-    left: 100vh;
-    top: 50vh;
+    
     color: #FFF;
     text-decoration: none;
     background: linear-gradient(#1879BD 50%, #084D79 50%);
@@ -70,3 +70,53 @@ body{
 }
 
  */
+
+#game-intro,
+#game-board {
+  width: 1280px;
+  height: 720px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+}
+
+#game-intro,
+#game-board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#game-intro {
+    z-index: 1;
+}
+
+#dificulty{
+    width: 1280px;
+    height: 720px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
+}
+
+
+
+button{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+
+
+
+
+
+#retry{
+    display: none;
+}
