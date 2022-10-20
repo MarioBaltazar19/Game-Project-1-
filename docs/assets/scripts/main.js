@@ -23,6 +23,24 @@ window.onload = () => {
       
     };
 
+    document.getElementById("instructions").onclick = () => {
+        
+        document.getElementById("game-intro").style.display = "none";
+        
+        document.getElementById("back").style.display = "flex";
+        
+    };
+
+    document.getElementById("return").onclick = () => {
+        
+        document.getElementById("back").style.display = "none";
+
+        document.getElementById("game-intro").style.display = "flex";
+        
+        
+        
+    };
+
 
     document.getElementById("easy").onclick = () => {
         document.getElementById("dificulty").style.display = "none";
@@ -98,18 +116,20 @@ window.onload = () => {
  
 };
 
-
 document.addEventListener("keydown", (e) => {
     switch(e.code){
         case "ArrowUp" :
+            player.img.src = 'docs/assets/images/rocketamachama.png'
             player.speedY-=3;
             break;
 
          case "Space" :
+            player2.img.src = "/docs/assets/images/rocketbluechamabom.png"
             player2.speedY -=3;
             break; 
 
          case "KeyW" :
+            player3.img.src = "/docs/assets/images/rocketredchama.png"
             player3.speedY -=3;
             break;
         
@@ -117,11 +137,27 @@ document.addEventListener("keydown", (e) => {
     }
 });
 
+document.addEventListener("keyup", (e) => {
+    switch(e.code){
+        case "ArrowUp" :
+            player.img.src = 'docs/assets/images/iconBomPequeno.png'
 
-/* 
- document.addEventListener("keyup", (e) => {
-    player.speedY = -5;
-}); 
- */
+            break;
+
+         case "Space" :
+            player2.img.src = 'docs/assets/images/iconBomPequenoazul.png'
+
+            break; 
+
+         case "KeyW" :
+            player3.img.src = "docs/assets/images/iconBomPequenovermelho.png"
+        
+            break;
+        
+        
+    }
+});
+
+
 
 

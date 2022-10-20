@@ -26,16 +26,6 @@ class Component3{
         }
 
 
-
-
-
-
-        //BOTTOM
-
-
-
-
-
     }
 
 newPos() {
@@ -46,7 +36,6 @@ newPos() {
 
 
 drawPlayer() {
-    this.img.src = "/docs/assets/images/iconBomPequenovermelho.png";
     this.ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
 }
 

@@ -39,37 +39,7 @@ body{
 .button:active {
     background: linear-gradient(#678834 50%, #093905 50%);
 }
-/* 
-#canvas{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-}
- */
 
- /* .instructions {
-    width: 200px;
-    height: 50px;
-    line-height: 50px;
-    position: absolute;
-    left: 100vh;
-    top: 100vh;
-    color: #FFF;
-    text-decoration: none;
-    background: linear-gradient(#1879BD 50%, #084D79 50%);
-    text-align: center;
-    font-size: 25px;
-    font-family: sans-serif;
-    border-radius: 5vh;
-}
-.instructions:hover {                 
-    background: linear-gradient(#d16416 50%, #da1010 50%);
-}
-.instructions:active {
-    background: linear-gradient(#678834 50%, #093905 50%);
-}
-
- */
 
 #game-intro,
 #game-board {
@@ -91,7 +61,14 @@ body{
 
 #game-intro {
     z-index: 1;
+    flex-direction: column;
+    justify-content: center;
 }
+
+#instructions{
+    margin-top: 36px;
+}
+
 
 #dificulty{
     width: 1280px;
@@ -99,8 +76,13 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     z-index: 1;
 
+}
+
+#easy{
+    margin-top: 36px
 }
 
 #players{
@@ -109,7 +91,17 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     z-index: 1;
+}
+
+#back {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 
@@ -148,12 +140,25 @@ button{
     display: none;
 }
 
-.gif{
-    width: 1280px;
-    height: 720px;
+
+
+.hidden {
+    visibility: hidden;
+}
+
+#video{
+    width: 720px;
+    height: 576px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+#return{
+    z-index: 1;
+    margin-top: 36px
     
+
 }

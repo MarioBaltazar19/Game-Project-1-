@@ -15,6 +15,7 @@ class Game{
         this.playerDied = false;
         this.player2Died = false;
         this.player3Died = false;
+        
     } 
 
     drawBackground() {
@@ -67,7 +68,7 @@ class Game{
     }
 
 
-// copiar
+
     explode(x,y){
         let explosion = new Image()
         explosion.src= "/docs/assets/images/explosion.png"
@@ -80,22 +81,22 @@ class Game{
             return this.player.crashWith(obstacle);
         });
 
-        if((crashed || player.top() < 10 || player.bottom() > 710) && !this.playerDied ){ // copiar a partir &&
+        if((crashed || player.top() < 10 || player.bottom() > 710) && !this.playerDied ){ 
            setInterval(()=>{
                this.playerDied = true; 
            },200)
-           this.explode(this.player.x, this.player.y) // copiar
+           this.explode(this.player.x - 20, this.player.y - 20) 
         };
 
         
         if (this.player && !this.player2 && !this.player3)
-        {if (this.playerDied && !this.player2Died && !this.player3Died){ // copiar
+        {if (this.playerDied && !this.player2Died && !this.player3Died){ 
             this.stop();
         }}
 
         
         if (this.player && this.player2 && !this.player3)
-        {if (this.playerDied && this.player2Died && !this.player3Died){ // copiar
+        {if (this.playerDied && this.player2Died && !this.player3Died){ 
             this.stop();
         }}
 
@@ -103,7 +104,7 @@ class Game{
 
 
         if (this.player && this.player2 && this.player3)
-        {if (this.playerDied && this.player2Died && this.player3Died){ // copiar
+        {if (this.playerDied && this.player2Died && this.player3Died){ 
             this.stop();
         }}
 
@@ -120,18 +121,18 @@ class Game{
             setInterval(()=>{
                 this.player2Died = true; 
             },200)
-            this.explode(this.player2.x, this.player2.y) // copiar
+            this.explode(this.player2.x - 20, this.player2.y - 20) 
          };
  
          
          if (this.player && !this.player2 && !this.player3)
-         {if (this.playerDied && !this.player2Died && !this.player3Died){ // copiar
+         {if (this.playerDied && !this.player2Died && !this.player3Died){ 
              this.stop();
          }}
  
          
          if (this.player && this.player2 && !this.player3)
-         {if (this.playerDied && this.player2Died && !this.player3Died){ // copiar
+         {if (this.playerDied && this.player2Died && !this.player3Died){ 
              this.stop();
          }}
  
@@ -139,7 +140,7 @@ class Game{
  
  
          if (this.player && this.player2 && this.player3)
-         {if (this.playerDied && this.player2Died && this.player3Died){ // copiar
+         {if (this.playerDied && this.player2Died && this.player3Died){ 
              this.stop();
          }}
  
@@ -157,18 +158,18 @@ class Game{
             setInterval(()=>{
                 this.player3Died = true; 
             },200)
-            this.explode(this.player3.x, this.player3.y) // copiar
+            this.explode(this.player3.x - 20, this.player3.y - 20) 
          };
  
          
          if (this.player && !this.player2 && !this.player3)
-         {if (this.playerDied && !this.player2Died && !this.player3Died){ // copiar
+         {if (this.playerDied && !this.player2Died && !this.player3Died){ 
              this.stop();
          }}
  
          
          if (this.player && this.player2 && !this.player3)
-         {if (this.playerDied && this.player2Died && !this.player3Died){ // copiar
+         {if (this.playerDied && this.player2Died && !this.player3Died){ 
              this.stop();
          }}
  
@@ -176,7 +177,7 @@ class Game{
  
  
          if (this.player && this.player2 && this.player3)
-         {if (this.playerDied && this.player2Died && this.player3Died){ // copiar
+         {if (this.playerDied && this.player2Died && this.player3Died){ 
              this.stop();
          }}
  
@@ -213,13 +214,13 @@ class Game{
         if (this.frames % 250 === 0) {
           let x = 1500;
     
-          //calculate the height of the columns/obstacles
+          //height obstacles
           let minWidth = 10;
           let maxWidth = 70;
     
           let width = Math.floor(Math.random() * (maxWidth - minWidth + 1) + minWidth);
     
-          //these variables control the size of the gap between obstacles
+          //size of the gap 
           let minGap = 190;
           let maxGap = 200;
     
@@ -242,35 +243,11 @@ class Game{
           this.obstacles.push(new Component(1300, Math.floor(Math.random() * (canvas.height - 50 + 50 + 1) + 120), 55, 55, 'blue', this.ctx));
         }
     
-     /*    
-        if (this.frames % 240===0) {
-            this.obstacles.push(new Enemys(this.ctx))
-        } */
+
 
     }
 
-    /* timer() {
-        if (this.frames < 180) {
-          const timer2 = 3 - Math.floor(this.frames / 60);
-          this.ctx.fillStyle = `rgba(0, 0, 0, 0.25)`;
-          this.ctx.fillRect(0, 0, this.width, this.height);
-          this.ctx.fillStyle = "#35d32f";
-          this.ctx.font = "100px Star Jedi";
-          this.ctx.backgroundColor = "#000000";
-          this.ctx.fillText(`${timer2}`, 250, 275);
-        }
-    } */
 
 }
 
 
-/* class Enemys extends Game{
-    constructor( ctx);{
-    super (ctx); 
-    this.ctx = ctx
-    this.img = new Image()
-    this.img.src = "/docs/assets/images/vermelha.png"
-
-
-
-} */

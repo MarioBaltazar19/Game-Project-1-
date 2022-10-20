@@ -12,10 +12,17 @@
 
 
     <div id="game-intro">
-        <!-- button -->
-        <a href="#" class="button" id="start-button">Play</a>
+        <button class="button" id="start-button">Play</button>
+        <button class="button" id="instructions">Instructions</button>
     </div>
-        <!-- <button id="retry">RETRY</button> -->
+  
+    <div id="back" style="display: none">
+        <video width="720" height="576" controls autoplay>
+            <source id="video" src="docs/assets/images/instructionsMovie.mp4" type="video/mp4">
+          </video>
+       <!--  <video id="video" src="/docs/assets/images/instructionsMovie.mp4"></video> -->
+        <button id="return" class="button">↩RETURN</button>
+    </div>
 
     <div id="players" style="display: none;">
         <button id="players1" class="multiplayer">1 PLAYER</button>
@@ -32,17 +39,18 @@
     </div>
 
     
-    
-
-    
-    <!-- <div id="game-instructions">
-        <a href="#" class="instructions" id="instructions-button">Instructions</a>
-    </div> -->
-    
 
     <div id="game-board">
         <canvas id="canvas" width="1280" height="720"></canvas>
     </div>
+
+    <div id="win" style="display: none">
+        <img src="/docs/assets/images/winn.jpg" alt="">
+        <button id="menu" class="button">Menu</button>
+
+    </div>
+
+
     <script src="/docs/assets/scripts/components.js"></script>
     <script src="/docs/assets/scripts/player2.js"></script>
     <script src="/docs/assets/scripts/player3.js"></script>

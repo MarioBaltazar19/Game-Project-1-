@@ -78,22 +78,22 @@ class GameEasy{
             return this.player.crashWith(obstacle);
         });
 
-        if((crashed || player.top() < 10 || player.bottom() > 710) && !this.playerDied ){ // copiar a partir &&
+        if((crashed || player.top() < 10 || player.bottom() > 710) && !this.playerDied ){ 
            setInterval(()=>{
                this.playerDied = true; 
            },200)
-           this.explode(this.player.x, this.player.y) // copiar
+           this.explode(this.player.x - 20, this.player.y - 20) 
         };
 
         
         if (this.player && !this.player2 && !this.player3)
-        {if (this.playerDied && !this.player2Died && !this.player3Died){ // copiar
+        {if (this.playerDied && !this.player2Died && !this.player3Died){ 
             this.stop();
         }}
 
         
         if (this.player && this.player2 && !this.player3)
-        {if (this.playerDied && this.player2Died && !this.player3Died){ // copiar
+        {if (this.playerDied && this.player2Died && !this.player3Died){ 
             this.stop();
         }}
 
@@ -101,7 +101,7 @@ class GameEasy{
 
 
         if (this.player && this.player2 && this.player3)
-        {if (this.playerDied && this.player2Died && this.player3Died){ // copiar
+        {if (this.playerDied && this.player2Died && this.player3Died){ 
             this.stop();
         }}
 
@@ -118,18 +118,18 @@ class GameEasy{
             setInterval(()=>{
                 this.player2Died = true; 
             },200)
-            this.explode(this.player2.x, this.player2.y) // copiar
+            this.explode(this.player2.x - 20, this.player2.y - 20) 
          };
  
          
          if (this.player && !this.player2 && !this.player3)
-         {if (this.playerDied && !this.player2Died && !this.player3Died){ // copiar
+         {if (this.playerDied && !this.player2Died && !this.player3Died){ 
              this.stop();
          }}
  
          
          if (this.player && this.player2 && !this.player3)
-         {if (this.playerDied && this.player2Died && !this.player3Died){ // copiar
+         {if (this.playerDied && this.player2Died && !this.player3Died){ 
              this.stop();
          }}
  
@@ -137,7 +137,7 @@ class GameEasy{
  
  
          if (this.player && this.player2 && this.player3)
-         {if (this.playerDied && this.player2Died && this.player3Died){ // copiar
+         {if (this.playerDied && this.player2Died && this.player3Died){ 
              this.stop();
          }}
  
@@ -155,18 +155,18 @@ class GameEasy{
             setInterval(()=>{
                 this.player3Died = true; 
             },200)
-            this.explode(this.player3.x, this.player3.y) // copiar
+            this.explode(this.player3.x - 20, this.player3.y - 20) 
          };
  
          
          if (this.player && !this.player2 && !this.player3)
-         {if (this.playerDied && !this.player2Died && !this.player3Died){ // copiar
+         {if (this.playerDied && !this.player2Died && !this.player3Died){ 
              this.stop();
          }}
  
          
          if (this.player && this.player2 && !this.player3)
-         {if (this.playerDied && this.player2Died && !this.player3Died){ // copiar
+         {if (this.playerDied && this.player2Died && !this.player3Died){ 
              this.stop();
          }}
  
@@ -174,7 +174,7 @@ class GameEasy{
  
  
          if (this.player && this.player2 && this.player3)
-         {if (this.playerDied && this.player2Died && this.player3Died){ // copiar
+         {if (this.playerDied && this.player2Died && this.player3Died){ 
              this.stop();
          }}
  
@@ -218,13 +218,13 @@ class GameEasy{
         if (this.frames % 250 === 0) {
           let x = 1500;
     
-          //calculate the height of the columns/obstacles
+          //height obstacles
           let minWidth = 10;
           let maxWidth = 70;
     
           let width = Math.floor(Math.random() * (maxWidth - minWidth + 1) + minWidth);
     
-          //these variables control the size of the gap between obstacles
+          //size of the gap
           let minGap = 190;
           let maxGap = 200;
     
@@ -247,10 +247,7 @@ class GameEasy{
           this.obstacles.push(new Component(1300, Math.floor(Math.random() * (canvas.height - 50 + 50 + 1) + 120), 55, 55, 'blue', this.ctx));
         }
 
-     /*    
-        if (this.frames % 240===0) {
-            this.obstacles.push(new Enemys(this.ctx))
-        } */
+     
 
     }
 

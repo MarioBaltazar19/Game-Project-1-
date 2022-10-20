@@ -27,17 +27,6 @@ class Component{
             this.y += this.speedY + this.gravitySpeed;  
         }
 
-
-
-
-
-
-        //BOTTOM
-
-
-
-
-
     }
 
 newPos() {
@@ -48,7 +37,6 @@ newPos() {
 
 
 drawPlayer() {
-    this.img.src = "/docs/assets/images/iconBomPequeno.png";
     this.ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
 }
 
