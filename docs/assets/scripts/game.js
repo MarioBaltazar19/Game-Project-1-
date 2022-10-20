@@ -12,6 +12,9 @@ class Game{
         this.frames = 0;
         this.background = new Image();
         this.points = 0;
+        this.playerDied = false;
+        this.player2Died = false;
+        this.player3Died = false;
     } 
 
     drawBackground() {
@@ -41,13 +44,14 @@ class Game{
         if (this.bgHeight < 5800)
         {this.bgHeight += 0.5;}
         this.drawBackground();
-        this.player.newPos();
-        this.player.drawPlayer();
-        if (this.player2)
+        if( !this.playerDied)
+        {this.player.newPos();
+        this.player.drawPlayer();}
+        if (this.player2 && !this.player2Died)
         {this.player2.newPos();
         this.player2.drawPlayer();
         this.checkGameOver2();}
-        if (this.player3)
+        if (this.player3 && !this.player3Died)
         {this.player3.newPos();
         this.player3.drawPlayer();
         this.checkGameOver3();}
@@ -62,7 +66,12 @@ class Game{
        
     }
 
-    explode(){
+
+// copiar
+    explode(x,y){
+        let explosion = new Image()
+        explosion.src= "/docs/assets/images/explosion.png"
+        this.ctx.drawImage(explosion,x,y,100,100)
 
     }
 
@@ -71,9 +80,34 @@ class Game{
             return this.player.crashWith(obstacle);
         });
 
-        if(crashed || player.top() < 10 || player.bottom() > 710){
-            this.stop();
+        if((crashed || player.top() < 10 || player.bottom() > 710) && !this.playerDied ){ // copiar a partir &&
+           setInterval(()=>{
+               this.playerDied = true; 
+           },200)
+           this.explode(this.player.x, this.player.y) // copiar
         };
+
+        
+        if (this.player && !this.player2 && !this.player3)
+        {if (this.playerDied && !this.player2Died && !this.player3Died){ // copiar
+            this.stop();
+        }}
+
+        
+        if (this.player && this.player2 && !this.player3)
+        {if (this.playerDied && this.player2Died && !this.player3Died){ // copiar
+            this.stop();
+        }}
+
+
+
+
+        if (this.player && this.player2 && this.player3)
+        {if (this.playerDied && this.player2Died && this.player3Died){ // copiar
+            this.stop();
+        }}
+
+
     }
 
     checkGameOver2() {
@@ -83,7 +117,7 @@ class Game{
         });
 
         if(crashed || this.player2.top() < 10 || this.player2.bottom() > 710){
-            this.stop();
+            this.player2Died = true;
         };}
     }
 
@@ -94,7 +128,7 @@ class Game{
         });
 
         if(crashed || this.player3.top() < 10 || this.player3.bottom() > 710){
-            this.stop();
+            this.player3Died = true;
         };}
     }
 
@@ -161,6 +195,18 @@ class Game{
             this.obstacles.push(new Enemys(this.ctx))
         } */
 
+    }
+
+    timer() {
+        if (this.frames < 180) {
+          const timer2 = 3 - Math.floor(this.frames / 60);
+          this.ctx.fillStyle = `rgba(0, 0, 0, 0.25)`;
+          this.ctx.fillRect(0, 0, this.width, this.height);
+          this.ctx.fillStyle = "#35d32f";
+          this.ctx.font = "100px Star Jedi";
+          this.ctx.backgroundColor = "#000000";
+          this.ctx.fillText(`${timer2}`, 250, 275);
+        }
     }
 
 }

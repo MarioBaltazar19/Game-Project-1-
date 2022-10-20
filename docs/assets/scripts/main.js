@@ -84,18 +84,16 @@ window.onload = () => {
             game.start();  
         } else if (gameMode === 'normal'){
             player2 = new Component2(500, 360, 50, 75, "red", ctx);
-player3 = new Component3(760, 360, 50, 75, "red", ctx);
+            player3 = new Component3(760, 360, 50, 75, "red", ctx);
             let game = new Game(ctx, 1280, 720, player, player2, player3); 
             game.start();  
         } else if (gameMode === 'expert') {
             player2 = new Component2(500, 360, 50, 75, "red", ctx);
-player3 = new Component3(760, 360, 50, 75, "red", ctx);
+            player3 = new Component3(760, 360, 50, 75, "red", ctx);
             let game = new GameExpert(ctx, 1280, 720, player, player2, player3); 
             game.start();  
         }
     }
-
-
 
  
 };
@@ -125,6 +123,5 @@ document.addEventListener("keydown", (e) => {
     player.speedY = -5;
 }); 
  */
-
 
 
