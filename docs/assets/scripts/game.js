@@ -25,10 +25,14 @@ class Game{
         this.background.style.borderRadius = "10px";
         this.background.src = '/docs/assets/images/backgroundBom.jpg';
         this.ctx.drawImage(this.background, 0, this.bgHeight, this.width, -5800);
-      }
+    }
+
+    
 
     start(){
         this.intervalId = setInterval(this.update, 500 / 60);
+        audio.play()
+        
     } 
 
     clear(){
@@ -67,7 +71,6 @@ class Game{
 
     stop(){
         clearInterval(this.intervalId);
-       
     }
 
 

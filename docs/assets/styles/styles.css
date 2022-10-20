@@ -1,13 +1,3 @@
-/* 
-canvas{
-    background-image: url(/docs/assets/images/background\ Game.jpg);
-    background-position-y: -360vh;
-    background-repeat: no-repeat;
-    background-size:  170vh;
-    
-} */
-
-
 body{
     background-image: url(/docs/assets/images/2352.jpg) ;
     background-size: 250vh;
@@ -162,3 +152,7 @@ button{
     
 
 }
+
+/* #menu{
+    z-index: 1;
+}  */

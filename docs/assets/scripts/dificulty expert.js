@@ -25,6 +25,7 @@ class GameExpert{
 
     start(){
         this.intervalId = setInterval(this.update, 500 / 60);
+        audio.play()
     } 
 
     clear(){
