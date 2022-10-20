@@ -116,9 +116,35 @@ class Game{
             return this.player2.crashWith(obstacle);
         });
 
-        if(crashed || this.player2.top() < 10 || this.player2.bottom() > 710){
-            this.player2Died = true;
-        };}
+        if((crashed || this.player2.top() < 10 || this.player2.bottom() > 710) && !this.player2Died ){
+            setInterval(()=>{
+                this.player2Died = true; 
+            },200)
+            this.explode(this.player2.x, this.player2.y) // copiar
+         };
+ 
+         
+         if (this.player && !this.player2 && !this.player3)
+         {if (this.playerDied && !this.player2Died && !this.player3Died){ // copiar
+             this.stop();
+         }}
+ 
+         
+         if (this.player && this.player2 && !this.player3)
+         {if (this.playerDied && this.player2Died && !this.player3Died){ // copiar
+             this.stop();
+         }}
+ 
+ 
+ 
+ 
+         if (this.player && this.player2 && this.player3)
+         {if (this.playerDied && this.player2Died && this.player3Died){ // copiar
+             this.stop();
+         }}
+ 
+ 
+        }
     }
 
     checkGameOver3() {
@@ -127,10 +153,36 @@ class Game{
             return this.player3.crashWith(obstacle);
         });
 
-        if(crashed || this.player3.top() < 10 || this.player3.bottom() > 710){
-            this.player3Died = true;
-        };}
-    }
+        if((crashed || this.player3.top() < 10 || this.player3.bottom() > 710) && !this.player3Died ){
+            setInterval(()=>{
+                this.player3Died = true; 
+            },200)
+            this.explode(this.player3.x, this.player3.y) // copiar
+         };
+ 
+         
+         if (this.player && !this.player2 && !this.player3)
+         {if (this.playerDied && !this.player2Died && !this.player3Died){ // copiar
+             this.stop();
+         }}
+ 
+         
+         if (this.player && this.player2 && !this.player3)
+         {if (this.playerDied && this.player2Died && !this.player3Died){ // copiar
+             this.stop();
+         }}
+ 
+ 
+ 
+ 
+         if (this.player && this.player2 && this.player3)
+         {if (this.playerDied && this.player2Died && this.player3Died){ // copiar
+             this.stop();
+         }}
+ 
+ 
+        }
+    }    
 
 
     updateObstacles() {
@@ -197,7 +249,7 @@ class Game{
 
     }
 
-    timer() {
+    /* timer() {
         if (this.frames < 180) {
           const timer2 = 3 - Math.floor(this.frames / 60);
           this.ctx.fillStyle = `rgba(0, 0, 0, 0.25)`;
@@ -207,7 +259,7 @@ class Game{
           this.ctx.backgroundColor = "#000000";
           this.ctx.fillText(`${timer2}`, 250, 275);
         }
-    }
+    } */
 
 }
 

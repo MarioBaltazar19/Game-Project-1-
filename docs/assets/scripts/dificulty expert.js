@@ -11,6 +11,10 @@ class GameExpert{
         this.bgHeight = 720;
         this.frames = 0;
         this.background = new Image();
+        this.points = 0;
+        this.playerDied = false;
+        this.player2Died = false;
+        this.player3Died = false;
     } 
 
     drawBackground() {
@@ -28,10 +32,10 @@ class GameExpert{
     }
 
     score() {
-        const points = Math.floor(this.frames / 15);
+        this.points = Math.floor(this.frames / 15);
         this.ctx.font = "30px monospace";
         this.ctx.fillStyle = "white";
-        this.ctx.fillText (`Score: ${points}` , 1080, 60);
+        this.ctx.fillText (`Score: ${this.points}` , 1080, 60);
     }
 
     update = () => {
@@ -40,13 +44,14 @@ class GameExpert{
         if (this.bgHeight < 5800)
         {this.bgHeight += 0.5;}
         this.drawBackground();
-        this.player.newPos();
-        this.player.drawPlayer();
-        if (this.player2)
+        if( !this.playerDied)
+        {this.player.newPos();
+        this.player.drawPlayer();}
+        if (this.player2 && !this.player2Died)
         {this.player2.newPos();
         this.player2.drawPlayer();
         this.checkGameOver2();}
-        if (this.player3)
+        if (this.player3 && !this.player3Died)
         {this.player3.newPos();
         this.player3.drawPlayer();
         this.checkGameOver3();}
@@ -60,14 +65,46 @@ class GameExpert{
         clearInterval(this.intervalId);
     }
 
+    explode(x,y){
+        let explosion = new Image()
+        explosion.src= "/docs/assets/images/explosion.png"
+        this.ctx.drawImage(explosion,x,y,100,100)
+
+    }
+
     checkGameOver() {
         const crashed = this.obstacles.some((obstacle) => {
             return this.player.crashWith(obstacle);
         });
 
-        if(crashed || player.top() < 10 || player.bottom() > 710){
-            this.stop();
+        if((crashed || player.top() < 10 || player.bottom() > 710) && !this.playerDied ){ // copiar a partir &&
+           setInterval(()=>{
+               this.playerDied = true; 
+           },200)
+           this.explode(this.player.x, this.player.y) // copiar
         };
+
+        
+        if (this.player && !this.player2 && !this.player3)
+        {if (this.playerDied && !this.player2Died && !this.player3Died){ // copiar
+            this.stop();
+        }}
+
+        
+        if (this.player && this.player2 && !this.player3)
+        {if (this.playerDied && this.player2Died && !this.player3Died){ // copiar
+            this.stop();
+        }}
+
+
+
+
+        if (this.player && this.player2 && this.player3)
+        {if (this.playerDied && this.player2Died && this.player3Died){ // copiar
+            this.stop();
+        }}
+
+
     }
 
     checkGameOver2() {
@@ -76,9 +113,35 @@ class GameExpert{
             return this.player2.crashWith(obstacle);
         });
 
-        if(crashed || this.player2.top() < 10 || this.player2.bottom() > 710){
-            this.stop();
-        };}
+        if((crashed || this.player2.top() < 10 || this.player2.bottom() > 710) && !this.player2Died ){
+            setInterval(()=>{
+                this.player2Died = true; 
+            },200)
+            this.explode(this.player2.x, this.player2.y) // copiar
+         };
+ 
+         
+         if (this.player && !this.player2 && !this.player3)
+         {if (this.playerDied && !this.player2Died && !this.player3Died){ // copiar
+             this.stop();
+         }}
+ 
+         
+         if (this.player && this.player2 && !this.player3)
+         {if (this.playerDied && this.player2Died && !this.player3Died){ // copiar
+             this.stop();
+         }}
+ 
+ 
+ 
+ 
+         if (this.player && this.player2 && this.player3)
+         {if (this.playerDied && this.player2Died && this.player3Died){ // copiar
+             this.stop();
+         }}
+ 
+ 
+        }
     }
 
     checkGameOver3() {
@@ -87,10 +150,36 @@ class GameExpert{
             return this.player3.crashWith(obstacle);
         });
 
-        if(crashed || this.player3.top() < 10 || this.player3.bottom() > 710){
-            this.stop();
-        };}
-    }
+        if((crashed || this.player3.top() < 10 || this.player3.bottom() > 710) && !this.player3Died ){
+            setInterval(()=>{
+                this.player3Died = true; 
+            },200)
+            this.explode(this.player3.x, this.player3.y) // copiar
+         };
+ 
+         
+         if (this.player && !this.player2 && !this.player3)
+         {if (this.playerDied && !this.player2Died && !this.player3Died){ // copiar
+             this.stop();
+         }}
+ 
+         
+         if (this.player && this.player2 && !this.player3)
+         {if (this.playerDied && this.player2Died && !this.player3Died){ // copiar
+             this.stop();
+         }}
+ 
+ 
+ 
+ 
+         if (this.player && this.player2 && this.player3)
+         {if (this.playerDied && this.player2Died && this.player3Died){ // copiar
+             this.stop();
+         }}
+ 
+ 
+        }
+    }    
 
 
     updateObstacles() {
