@@ -78,7 +78,8 @@ class Game{
     explode(x,y){
         let explosion = new Image()
         explosion.src= "docs/assets/images/explosion.png"
-        this.ctx.drawImage(explosion,x,y,100,100)
+        this.ctx.drawImage(explosion,x,y,200,200) 
+        audio4.play()
 
     }
 
@@ -91,7 +92,7 @@ class Game{
            setInterval(()=>{
                this.playerDied = true; 
            },200)
-           this.explode(this.player.x - 20, this.player.y - 20) 
+           this.explode(this.player.x - 50, this.player.y - 40) 
         };
 
         
@@ -113,6 +114,10 @@ class Game{
         {if (this.playerDied && this.player2Died && this.player3Died){ 
             this.stop();
         }}
+
+        
+
+        
 
 
     }

@@ -69,7 +69,8 @@ class GameExpert{
     explode(x,y){
         let explosion = new Image()
         explosion.src= "docs/assets/images/explosion.png"
-        this.ctx.drawImage(explosion,x,y,100,100)
+        this.ctx.drawImage(explosion,x,y,200,200)
+        audio4.play()
 
     }
 
@@ -82,7 +83,7 @@ class GameExpert{
            setInterval(()=>{
                this.playerDied = true; 
            },200)
-           this.explode(this.player.x - 20, this.player.y - 20) 
+           this.explode(this.player.x - 50, this.player.y - 40) 
         };
 
         

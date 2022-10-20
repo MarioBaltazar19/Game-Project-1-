@@ -54,7 +54,7 @@ top(){
 }
 
 bottom() {
-    return (this.y - 12) + this.h;
+    return (this.y - 30) + this.h;
 }
 
 left() {
