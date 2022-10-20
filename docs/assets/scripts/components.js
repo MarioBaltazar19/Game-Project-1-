@@ -43,7 +43,7 @@ drawPlayer() {
 
 
 drawEnemy(){
-    this.img.src = "/docs/assets/images/douradaBoa3.png";
+    this.img.src = "docs/assets/images/douradaBoa3.png";
     this.ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
 }
 

@@ -23,7 +23,7 @@ class Game{
 
     drawBackground() {
         this.background.style.borderRadius = "10px";
-        this.background.src = '/docs/assets/images/backgroundBom.jpg';
+        this.background.src = 'docs/assets/images/backgroundBom.jpg';
         this.ctx.drawImage(this.background, 0, this.bgHeight, this.width, -5800);
     }
 
@@ -77,7 +77,7 @@ class Game{
 
     explode(x,y){
         let explosion = new Image()
-        explosion.src= "/docs/assets/images/explosion.png"
+        explosion.src= "docs/assets/images/explosion.png"
         this.ctx.drawImage(explosion,x,y,100,100)
 
     }

@@ -6,7 +6,7 @@ const player = new Component(630, 360, 50, 95, "red", ctx);
 
 
 
-let audio = new Audio('/docs/assets/sounds/Ducktales Remastered Soundtrack - Moon Theme.mp3');
+let audio = new Audio('docs/assets/sounds/Ducktales Remastered Soundtrack - Moon Theme.mp3');
 audio.volume = 0.1;
 
 
@@ -131,17 +131,17 @@ window.onload = () => {
 document.addEventListener("keydown", (e) => {
     switch(e.code){
         case "Space" :
-            player.img.src = '/docs/assets/images/rocket--2.png'
+            player.img.src = 'docs/assets/images/rocket--2.png'
             player.speedY-=2.5;
             break;
 
          case "ArrowUp" :
-            player2.img.src = "/docs/assets/images/rocketredchamamelhor.png"
+            player2.img.src = "docs/assets/images/rocketredchamamelhor.png"
             player2.speedY -=2.5;
             break; 
 
          case "KeyW" :
-            player3.img.src = "/docs/assets/images/rocketbluechamamelhor.png"
+            player3.img.src = "docs/assets/images/rocketbluechamamelhor.png"
             player3.speedY -=2.5;
             break;
         
@@ -152,17 +152,17 @@ document.addEventListener("keydown", (e) => {
 document.addEventListener("keyup", (e) => {
     switch(e.code){
         case "Space" :
-            player.img.src = '/docs/assets/images/rocket--1.png'
+            player.img.src = 'docs/assets/images/rocket--1.png'
 
             break;
 
          case "ArrowUp" :
-            player2.img.src = '/docs/assets/images/rockerredmelhor.png'
+            player2.img.src = 'docs/assets/images/rockerredmelhor.png'
 
             break; 
 
          case "KeyW" :
-            player3.img.src = "/docs/assets/images/rocketbluemelhor.png"
+            player3.img.src = "docs/assets/images/rocketbluemelhor.png"
         
             break;
         
