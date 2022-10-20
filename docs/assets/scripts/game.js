@@ -15,6 +15,9 @@ class Game{
         this.playerDied = false;
         this.player2Died = false;
         this.player3Died = false;
+        this.playerOnFire = false;
+        this.player2OnFire = false;
+        this.player3OnFire = false;
         
     } 
 
@@ -246,6 +249,8 @@ class Game{
 
 
     }
+
+    
 
 
 }
