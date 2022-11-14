@@ -194,7 +194,10 @@ class Game{
  
  
         }
+        
     }    
+
+
 
 
     updateObstacles() {
